@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.language.LanguageActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_130sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:src="@drawable/uzmobile_logo"
+        android:text="@string/hello_blank_fragment"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/uz_tv"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/language_tv_back"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="O’zbek"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/ru_tv"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/language_tv_back"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="Русский"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/cirill_tv"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/language_tv_back"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/latin"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

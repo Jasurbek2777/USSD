@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.github.florent37.expansionpanel.ExpansionHeader
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:expansion_headerIndicator="@id/header"
+            app:expansion_layout="@id/expansionLayout"
+            app:expansion_toggleOnClick="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:background="@drawable/rv_item_image_back"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/rv_item_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/rv_item_name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="*141#"
+                        android:textColor="@color/white"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/rv_item_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:text="SMS10"
+                    android:textColor="@color/grey"
+                    app:layout_constraintLeft_toRightOf="@id/linear"
+                    app:layout_constraintTop_toTopOf="@id/linear" />
+
+                <ImageView
+                    android:id="@+id/arrow"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                    app:layout_constraintBottom_toBottomOf="@id/rv_item_tv"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/rv_item_tv" />
+
+                <TextView
+                    android:id="@+id/rv_item_desc_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="7dp"
+                    android:maxLines="3"
+                    android:text="Agar abonentda ADSL texnologiyasidan foydalangan holda IPTV xizmati
+mavjud bo'lsa, tarif rejasida ko'rsatilgan tezlikni ta'minlash uchun texnik
+imkoniyat UZTELECOM savdo idorasiga yozma ariza bilan belgilanadi."
+                    android:textColor="#8C8A8A"
+                    android:textSize="@dimen/_7sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/linear"
+                    app:layout_constraintLeft_toLeftOf="@id/rv_item_tv"
+                    app:layout_constraintRight_toRightOf="@id/arrow"
+                    app:layout_constraintTop_toBottomOf="@id/rv_item_tv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.github.florent37.expansionpanel.ExpansionHeader>
+
+        <com.github.florent37.expansionpanel.ExpansionLayout
+            android:id="@+id/expansionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_17sdp">
+
+            <LinearLayout
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+            </LinearLayout>
+        </com.github.florent37.expansionpanel.ExpansionLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/_70sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_13sdp"
+            android:background="@drawable/rv_line" />
+    </LinearLayout>
+</LinearLayout>

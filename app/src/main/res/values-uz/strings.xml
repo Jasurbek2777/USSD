@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">MYUSSD</string>
+    <string name="uzbek">O\’zbek</string>
+    <string name="russian">Русский</string>
+    <string name="latin">Ўзбек</string>
+    <!-- drawer screen -->
+    <string name="drawer_txt">Миллий оператор</string>
+
+    <string name="day_packages">Кунлик пакетлар</string>
+    <string name="haftalik_packages">Ҳафталик пакетлар</string>
+    <string name="oylik_packages">Ойлик пакетлар</string>
+    <string name="telegram_channel">Телеграм канал</string>
+    <string name="connect_with_us">Биз блан алока</string>
+    <string name="share">Улашиш</string>
+    <string name="rate">Бахолаш</string>
+    <string name="about_us">Биз хакимизда</string>
+
+
+    <!-- bottom navigation -->
+    <string name="balance">Баланс</string>
+    <string name="operator">Оператор</string>
+    <string name="news">Йангиликлар</string>
+    <string name="settings">Созламалар</string>
+
+
+
+    <!-- mainCard -->
+    <string name="ussd">USSD </string>
+    <string name="tarif">Тариф</string>
+    <string name="xizmat">Хизматлар</string>
+    <string name="minute">Дақиқа</string>
+    <string name="internet">Интернет</string>
+    <string name="sms">СМС</string>
+
+    <!-- labels -->
+    <string name="ussd_label">USSD кодлар</string>
+    <string name="tarif_label">Тарифлар</string>
+    <string name="xizmat_label">Хизматлар</string>
+    <string name="minute_label">Дақиқалар</string>
+    <string name="internet_label">Интренет пакетлар</string>
+    <string name="sms_label">СМС пакетлар</string>
+
+    <string name="trafikni_tekshirish">Трафикни текшириш</string>
+    <string name="sms_tekshirish">СМС ни текшириш</string>
+    <string name="tarif_tekshirish">Тарифни текшириш</string>
+    <string name="daqiqa_tekshirish">Дақиқа ни текшириш</string>
+
+
+    <string name="batafsil">БАТАФСИЛ</string>
+    <string name="tarif_change">ТАРИФ УЗГАРТИРИШ</string>
+
+    <string name="permission">Рухсат рад этилди</string>
+
+    <string name="news_tab">Йангиликлар</string>
+    <string name="sale_tab">Аксиялар</string>
+    <string name="back">ОРКАГА</string>
+    <string name="call">Кунгирок клиш</string>
+    <string name="biz_blan_aloqa">Биз блан алока</string>
+    <string name="send_email">XAT ЖУНАТИШ</string>
+    <string name="about_txt">Мазкур илова Узмобиле оператори мижозларига қулайлик яратиш мақсадида ишлаб чиқилган бўлиб, сизнинг шахсий ҳисоб варақангизга ва рақамингизга ҳеч қандай зарарли томони йўқ.Савол ва таклифлар бўлса @уссдчат Телеграм орқали ёзишингиз мумкин.</string>
+    <string name="daqiqalar">"Дақиқа: "</string>
+    <string name="internetlar">"Интернет: "</string>
+    <string name="smslar">"Sms: "</string>
+    <string name="so_m_oy">сум/ой</string>
+    <string name="so_m">сум</string>
+    <string name="change">Тариф узгартириш: </string>
+    <string name="payment">Абонент тулови </string>
+
+    <string name="uzb">Узбекситон буйича </string>
+    <string name="daqiqa">дақиқа </string>
+    <string name="network">Тармоқ ичида </string>
+    <string name="mob_internet">Мобил интернет </string>
+    <string name="sms_uzb">Узбекситон буйича </string>
+    <string name="activlashtirish">АКТИВЛАШТИРИШ</string></resources>

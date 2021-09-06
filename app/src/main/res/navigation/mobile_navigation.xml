@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="uz.juo.ussd.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_packageFragment"
+            app:destination="@id/packageFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_languageFragment"
+            />
+        <action
+            android:id="@+id/action_nav_home_to_tarifFragment"
+            app:destination="@id/tarifFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/packageFragment"
+        android:name="uz.juo.ussd.ui.packages.PackageFragment"
+        android:label="fragment_package"
+        tools:layout="@layout/fragment_package" >
+        <action
+            android:id="@+id/action_packageFragment_to_packageInnerFragment"
+            app:destination="@id/packageInnerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/packageInnerFragment"
+        android:name="uz.juo.ussd.ui.packages.PackageInnerFragment"
+        android:label="fragment_package_inner"
+        tools:layout="@layout/fragment_package_inner" />
+
+    <fragment
+        android:id="@+id/tarifFragment"
+        android:name="uz.juo.ussd.ui.tarif.TarifFragment"
+        android:label="fragment_tarif"
+        tools:layout="@layout/fragment_tarif" />
+    <fragment
+        android:id="@+id/serviceFragment"
+        android:name="uz.juo.ussd.ui.service.ServiceFragment"
+        android:label="fragment_service"
+        tools:layout="@layout/fragment_service" />
+    <fragment
+        android:id="@+id/newsFragment2"
+        android:name="uz.juo.ussd.ui.news.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+</navigation>

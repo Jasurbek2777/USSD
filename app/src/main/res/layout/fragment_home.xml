@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/main_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:src="@drawable/uzmobile_icon" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_2sdp"
+                android:text="UZMOBILE"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/drawer_txt"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintLeft_toLeftOf="@id/line"
+            app:layout_constraintRight_toRightOf="@id/line"
+            app:layout_constraintTop_toBottomOf="@id/line" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:layout_marginRight="@dimen/_25sdp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintHeight_percent="0.48"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv2" />
+
+        <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+            android:id="@+id/spring_dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:dampingRatio="0.5"
+            app:dotsColor="@color/white"
+            app:dotsCornerRadius="10dp"
+            app:dotsSize="10dp"
+            app:dotsSpacing="2dp"
+            app:dotsStrokeColor="@color/white"
+            app:dotsStrokeWidth="2dp"
+            app:layout_constraintLeft_toLeftOf="@id/view_pager"
+            app:layout_constraintRight_toRightOf="@id/view_pager"
+            app:layout_constraintTop_toBottomOf="@id/view_pager"
+            app:stiffness="300" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ussd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/ellipse"
+                            android:layout_width="@dimen/_57sdp"
+                            android:layout_height="@dimen/_57sdp"
+                            android:src="@drawable/grid_item_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_hash"
+                            app:layout_constraintBottom_toBottomOf="@id/ellipse"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse"
+                            app:layout_constraintStart_toStartOf="@id/ellipse"
+                            app:layout_constraintTop_toTopOf="@id/ellipse" />
+
+                        <TextView
+                            android:id="@+id/t1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/ussd"
+                            android:textColor="#4C4F51"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse"
+                            app:layout_constraintStart_toStartOf="@id/ellipse"
+                            app:layout_constraintTop_toBottomOf="@id/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/tarif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/ellipse1"
+                            android:layout_width="@dimen/_57sdp"
+                            android:layout_height="@dimen/_57sdp"
+                            android:src="@drawable/grid_item_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_credit_card"
+                            app:layout_constraintBottom_toBottomOf="@id/ellipse1"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse1"
+                            app:layout_constraintStart_toStartOf="@id/ellipse1"
+                            app:layout_constraintTop_toTopOf="@id/ellipse1" />
+
+                        <TextView
+                            android:id="@+id/t3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/tarif"
+                            android:textColor="#4C4F51"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse1"
+                            app:layout_constraintStart_toStartOf="@id/ellipse1"
+                            app:layout_constraintTop_toBottomOf="@id/ellipse1" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/xizmat"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/ellipse2"
+                            android:layout_width="@dimen/_57sdp"
+                            android:layout_height="@dimen/_57sdp"
+                            android:src="@drawable/grid_item_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_sliders"
+                            app:layout_constraintBottom_toBottomOf="@id/ellipse2"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse2"
+                            app:layout_constraintStart_toStartOf="@id/ellipse2"
+                            app:layout_constraintTop_toTopOf="@id/ellipse2" />
+
+                        <TextView
+                            android:id="@+id/t2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/xizmat"
+                            android:textColor="#4C4F51"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse2"
+                            app:layout_constraintStart_toStartOf="@id/ellipse2"
+                            app:layout_constraintTop_toBottomOf="@id/ellipse2" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/minute"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/ellipse3"
+                            android:layout_width="@dimen/_57sdp"
+                            android:layout_height="@dimen/_57sdp"
+                            android:src="@drawable/grid_item_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.3" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_phone"
+                            app:layout_constraintBottom_toBottomOf="@id/ellipse3"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse3"
+                            app:layout_constraintStart_toStartOf="@id/ellipse3"
+                            app:layout_constraintTop_toTopOf="@id/ellipse3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/minute"
+                            android:textColor="#4C4F51"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse3"
+                            app:layout_constraintStart_toStartOf="@id/ellipse3"
+                            app:layout_constraintTop_toBottomOf="@id/ellipse3" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/internet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/ellipse4"
+                            android:layout_width="@dimen/_57sdp"
+                            android:layout_height="@dimen/_57sdp"
+                            android:src="@drawable/grid_item_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.3" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_local"
+                            app:layout_constraintBottom_toBottomOf="@id/ellipse4"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse4"
+                            app:layout_constraintStart_toStartOf="@id/ellipse4"
+                            app:layout_constraintTop_toTopOf="@id/ellipse4" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/internet"
+                            android:textColor="#4C4F51"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse4"
+                            app:layout_constraintStart_toStartOf="@id/ellipse4"
+                            app:layout_constraintTop_toBottomOf="@id/ellipse4" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/sms"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/ellipse5"
+                            android:layout_width="@dimen/_57sdp"
+                            android:layout_height="@dimen/_57sdp"
+                            android:src="@drawable/grid_item_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.3" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_message"
+                            app:layout_constraintBottom_toBottomOf="@id/ellipse5"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse5"
+                            app:layout_constraintStart_toStartOf="@id/ellipse5"
+                            app:layout_constraintTop_toTopOf="@id/ellipse5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/sms"
+                            android:textColor="#4C4F51"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintEnd_toEndOf="@id/ellipse5"
+                            app:layout_constraintStart_toStartOf="@id/ellipse5"
+                            app:layout_constraintTop_toBottomOf="@id/ellipse5" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

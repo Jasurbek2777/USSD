@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">MYUSSD</string>
+    <string name="uzbek">O\’zbek</string>
+    <string name="russian">Русский</string>
+    <string name="latin">Ўзбек</string>
+    <!-- drawer screen -->
+    <string name="drawer_txt">Национальный оператор</string>
+
+    <string name="telegram_channel">Телеграм канал</string>
+    <string name="connect_with_us">Свяжитесь с нами</string>
+    <string name="share">Поделиться</string>
+    <string name="rate">Оценка</string>
+    <string name="about_us">О нас</string>
+
+    <!-- bottom navigation -->
+    <string name="balance">Баланс</string>
+    <string name="operator">Оператор</string>
+    <string name="news">Новости</string>
+    <string name="settings">Настройки</string>
+
+    <!-- exit -->
+
+
+
+    <!-- mainCard -->
+    <string name="ussd">USSD коды</string>
+    <string name="tarif">Тарифы</string>
+    <string name="xizmat">Услуги</string>
+    <string name="minute">Минуты</string>
+    <string name="internet">Интернет</string>
+    <string name="sms">СМС</string>
+
+    <!-- labels -->
+    <string name="ussd_label">USSD коды</string>
+    <string name="tarif_label">Тарифы</string>
+    <string name="xizmat_label">Услуги</string>
+    <string name="minute_label">Минуты</string>
+    <string name="internet_label">Интернет пакеты</string>
+    <string name="sms_label">СМС пакеты</string>
+
+    <string name="trafikni_tekshirish">Проверить трафик</string>
+    <string name="sms_tekshirish">Проверить СМС</string>
+    <string name="tarif_tekshirish">Проверить тариф</string>
+    <string name="daqiqa_tekshirish">Проверить минуты</string>
+
+
+    <string name="batafsil">ПОДРОБНЕЕ</string>
+    <string name="tarif_change">ИЗМЕНИТЬ ТАРИФ</string>
+    <string name="permission">В разрешении отказано</string>
+
+    <string name="news_tab">Новости</string>
+    <string name="sale_tab">Акции</string>
+    <string name="back">НАЗАД</string>
+    <string name="call">ПОЗВОНИТЬ</string>
+    <string name="biz_blan_aloqa">Свяжитесь с нами</string>
+    <string name="send_email">ОТПРАВИТЬ ПИСЬМО</string>
+    <string name="about_txt">Это приложение было разработано в процессе упрощения предложений оператора Uzmobile.
+          наша учетная запись никогда не будет иметь никакого отношения к вашему листу и номеру.
+          Вопросы и предложения можно отправлять через @ussdchat Telegram.</string>
+    <string name="daqiqalar">"Минуты: "</string>
+    <string name="internetlar">"Интернет: "</string>
+    <string name="smslar">"СМС: "</string>
+    <string name="so_m_oy">сум/месяц</string>
+    <string name="so_m">сум</string>
+    <string name="change">Изменить тариф: </string>
+    <string name="payment">Абонентская плата </string>
+
+
+    <string name="uzb">Исходящие по Узбекистану </string>
+    <string name="daqiqa">минут</string>
+    <string name="network">Исходящие внутри сети</string>
+    <string name="mob_internet">Мобильный интернет</string>
+    <string name="sms_uzb">CМС по Узбекистану</string>
+    <string name="activlashtirish">АКТИВИРОВАТЬ</string>
+
+    <string name="day_packages">Ежедневные пакеты</string>
+    <string name="haftalik_packages">Еженедельные пакеты</string>
+    <string name="oylik_packages">Ежемесячные пакеты</string>
+</resources>
