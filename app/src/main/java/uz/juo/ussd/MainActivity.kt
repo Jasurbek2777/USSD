@@ -113,7 +113,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             appBarMain.inner.news.setOnClickListener {
-                navController.navigate(R.id.newsFragment2)
+                if (navController.currentDestination!!.id != R.id.newsFragment2) {
+                    navController.navigate(R.id.newsFragment2)
+                }
+
             }
             appBarMain.inner.homeBtn.setOnClickListener {
                 if (navController.currentDestination!!.id != R.id.nav_home) {
@@ -247,37 +250,6 @@ class MainActivity : AppCompatActivity() {
 //    }
 
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.send -> {
-                val uri =
-                    Uri.parse("https://t.me/ussduz")
-                val intent = Intent(Intent.ACTION_VIEW, uri)
-                try {
-                    startActivity(intent)
-                } catch (e: Exception) {
-                    binding.drawerLayout.close()
-                }
-                binding.drawerLayout.close()
-            }
-            R.id.share -> {
-                val sendIntent = Intent()
-                sendIntent.action = Intent.ACTION_SEND
-                sendIntent.putExtra(
-                    Intent.EXTRA_TEXT,
-                    "http://play.google.com/store/apps/details?id=uz.pdp.uzmobile"
-                )
-                sendIntent.type = "text/plain"
-                startActivity(sendIntent)
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

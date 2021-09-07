@@ -41,7 +41,6 @@ class PackageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPackageBinding.inflate(inflater, container, false)
-        (activity as MainActivity).supportActionBar?.title = param1
         viewpagerAdapter = ViewPager2Adapter(param1.toString(), requireActivity())
         loadCategory()
         binding.viewpager.adapter = viewpagerAdapter
@@ -75,9 +74,25 @@ class PackageFragment : Fragment() {
 
     private fun loadCategory() {
         categoryList = ArrayList()
-        categoryList.add(getString(R.string.day_packages))
-        categoryList.add(getString(R.string.haftalik_packages))
-        categoryList.add(getString(R.string.oylik_packages))
+        when(param1){
+            "Internet"->{
+                categoryList.add(getString(R.string.day_packages))
+                categoryList.add(getString(R.string.oylik_packages))
+                categoryList.add(getString(R.string.night_pacages))
+            }
+            "Minut"->{
+                categoryList.add(getString(R.string.minut_package))
+                categoryList.add(getString(R.string.foydali_almashuv))
+                categoryList.add(getString(R.string.construktor_abonent))
+            }
+            "SMS"->{
+                categoryList.add(getString(R.string.day_packages))
+                categoryList.add(getString(R.string.oylik_packages))
+                categoryList.add(getString(R.string.xalqaro_paketlar))
+            }
+
+        }
+
     }
 
     private fun setTabs() {

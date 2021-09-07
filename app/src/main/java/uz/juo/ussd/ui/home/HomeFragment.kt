@@ -1,11 +1,12 @@
 package uz.juo.ussd.ui.home
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.animation.AnimationUtils
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -22,6 +23,10 @@ class HomeFragment : Fragment() {
     lateinit var imageList: ArrayList<Int>
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -105,4 +110,35 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.send -> {
+                val uri =
+                    Uri.parse("https://t.me/ussduz")
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                try {
+                    startActivity(intent)
+                } catch (e: Exception) {
+                }
+            }
+            R.id.share -> {
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.putExtra(
+                    Intent.EXTRA_TEXT,
+                    "http://play.google.com/store/apps/details?id=uz.pdp.uzmobile"
+                )
+                sendIntent.type = "text/plain"
+                startActivity(sendIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.main, menu)
+    }
+
 }

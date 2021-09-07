@@ -21,7 +21,12 @@
 
     <!-- exit -->
 
+    <string name="night_pacages">Ночной интернет</string>
 
+    <string name="minut_package">Минутные наборы</string>
+    <string name="foydali_almashuv">Полезные обмены</string>
+    <string name="construktor_abonent">Подписчики конструктора</string>
+    <string name="xalqaro_paketlar">Международные пакеты</string>
 
     <!-- mainCard -->
     <string name="ussd">USSD коды</string>

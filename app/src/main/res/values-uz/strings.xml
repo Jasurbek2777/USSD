@@ -15,6 +15,7 @@
     <string name="share">Улашиш</string>
     <string name="rate">Бахолаш</string>
     <string name="about_us">Биз хакимизда</string>
+    <string name="night_pacages">Тунги интернет</string>
 
 
     <!-- bottom navigation -->
@@ -72,4 +73,17 @@
     <string name="network">Тармоқ ичида </string>
     <string name="mob_internet">Мобил интернет </string>
     <string name="sms_uzb">Узбекситон буйича </string>
-    <string name="activlashtirish">АКТИВЛАШТИРИШ</string></resources>
+    <string name="activlashtirish">АКТИВЛАШТИРИШ</string>
+
+
+
+
+    <string name="minut_package">Дақиқа тўпламлари</string>
+    <string name="foydali_almashuv">Фойдали Алмашувлар</string>
+    <string name="construktor_abonent">Конструктор абонентлари</string>
+
+    <string name="xalqaro_paketlar">Халқаро пакетлар</string>
+
+
+
+</resources>

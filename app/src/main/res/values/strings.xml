@@ -79,5 +79,10 @@
     <string name="day_packages">Kunlik paketlar</string>
     <string name="haftalik_packages">Haftalik paketlar</string>
     <string name="oylik_packages">Oylik paketlar</string>
+    <string name="night_pacages">Tungi internet</string>
+    <string name="minut_package">Daqiqa to\'plamlari</string>
+    <string name="foydali_almashuv">Foydali Almashuvlar</string>
+    <string name="construktor_abonent">Construktor abonentlari</string>
+    <string name="xalqaro_paketlar">Xalqaro paketlar</string>
 
 </resources>

@@ -1,6 +1,12 @@
 package uz.juo.ussd.models
 
-data class Ussd(
-    var name: String,
-    var code: String,
-)
+ class Ussd {
+     var name: String= ""
+     var code: String= ""
+
+     constructor()
+     constructor(name: String, code: String) {
+         this.name = name
+         this.code = code
+     }
+ }

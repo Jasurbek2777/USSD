@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
+import uz.juo.ussd.MainActivity
 import uz.juo.ussd.R
 import uz.juo.ussd.adapters.RvAdapterTarif
 import uz.juo.ussd.databinding.FragmentTarifBinding
@@ -40,38 +41,58 @@ class TarifFragment : Fragment() {
     ): View {
         binding = FragmentTarifBinding.inflate(inflater, container, false)
         var list = ArrayList<Tariflar>()
-        when (Functions().getLang(requireContext()).toString()) {
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.tarif_label)
+        when (SharedPreference.getInstance(context).lang) {
             "ru" -> {
+                list = ArrayList()
                 db.collection("DefinitionsRu").addSnapshotListener { value, error ->
                     value?.documentChanges?.forEach {
                         var data = it.document.toObject(Tariflar::class.java)
                         list.add(data)
                     }
                 }
+                adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
+                    override fun itemOnClick(data: Tariflar, position: Int) {
+                        Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
+                    }
+                })
+                binding.rv.adapter = adapter
             }
             "en" -> {
-
-                db.collection("Definitions").addSnapshotListener { value, error ->
+                list = ArrayList()
+                db.collection("Definitions").addSnapshotListener { value, _ ->
                     value?.documentChanges?.forEach {
                         var data = it.document.toObject(Tariflar::class.java)
                         list.add(data)
+                        if (value?.documentChanges?.size==list.size){
+                            adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
+                                override fun itemOnClick(data: Tariflar, position: Int) {
+                                    Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                            binding.rv.adapter = adapter
+                        }
                     }
                 }
+
             }
             "uz" -> {
+                list = ArrayList()
                 db.collection("DefinitionsCril").addSnapshotListener { value, error ->
                     value?.documentChanges?.forEach {
                         var data = it.document.toObject(Tariflar::class.java)
                         list.add(data)
                     }
                 }
+                adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
+                    override fun itemOnClick(data: Tariflar, position: Int) {
+                        Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
+                    }
+                })
+                binding.rv.adapter = adapter
             }
         }
-        adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
-            override fun itemOnClick(data: Tariflar, position: Int) {
-                Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
-            }
-        })
+
 
         return binding.root
 

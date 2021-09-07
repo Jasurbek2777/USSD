@@ -74,4 +74,9 @@
     <string name="mob_internet">Mobil internet</string>
     <string name="sms_uzb">O\'zbekiston bo\'yicha</string>
     <string name="activlashtirish">ACTIVLASHTIRISH</string>
+    <string name="night_pacages">Tungi internet</string>
+    <string name="minut_package">Daqiqa to\'plamlari</string>
+    <string name="foydali_almashuv">Foydali Almashuvlar</string>
+    <string name="construktor_abonent">Construktor abonentlari</string>
+    <string name="xalqaro_paketlar">Xalqaro paketlar</string>
 </resources>
