@@ -4,24 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_color"
     tools:context=".ui.news.NewsFragment">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/main_color"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabIndicatorHeight="0dp"
-        app:tabMode="scrollable"
-        app:tabRippleColor="@null" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/rv_item_back"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/rv_item2" />
 
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_7sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tab" />
 </androidx.constraintlayout.widget.ConstraintLayout>

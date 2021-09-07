@@ -775,8 +775,6 @@ class PackageInnerFragment : Fragment() {
                 }
             }
         }
-
-
     }
 
     companion object {
