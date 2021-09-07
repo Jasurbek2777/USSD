@@ -111,6 +111,7 @@ imkoniyat UZTELECOM savdo idorasiga yozma ariza bilan belgilanadi."
                 android:padding="10dp">
 
                 <TextView
+                    android:id="@+id/active"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rv_item_button_back"

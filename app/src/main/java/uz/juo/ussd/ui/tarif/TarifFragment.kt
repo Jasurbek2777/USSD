@@ -49,14 +49,17 @@ class TarifFragment : Fragment() {
                     value?.documentChanges?.forEach {
                         var data = it.document.toObject(Tariflar::class.java)
                         list.add(data)
+                        if(value.documentChanges.size==list.size){
+                            adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
+                                override fun itemOnClick(data: Tariflar, position: Int) {
+                                    Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                            binding.rv.adapter = adapter
+                        }
                     }
                 }
-                adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
-                    override fun itemOnClick(data: Tariflar, position: Int) {
-                        Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
-                    }
-                })
-                binding.rv.adapter = adapter
+
             }
             "en" -> {
                 list = ArrayList()

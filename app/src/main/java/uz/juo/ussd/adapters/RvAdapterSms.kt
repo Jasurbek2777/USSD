@@ -11,7 +11,11 @@ class RvAdapterSms(var list: ArrayList<SmsPaketlar>, var itemCLick: setOnCLick) 
     inner class Vh(var item: RvTestItemBinding) : RecyclerView.ViewHolder(item.root) {
         fun onBind(data: SmsPaketlar, position: Int) {
             item.rvItemTv.text = data.name
+            item.rvItemDescTv.text = data.price + "\n" + data.count_sms + "\n" + data.day_sms
             item.root.setOnClickListener {
+                itemCLick.itemOnClick(list[position], position)
+            }
+            item.active.setOnClickListener {
                 itemCLick.itemOnClick(list[position], position)
             }
         }
@@ -30,5 +34,6 @@ class RvAdapterSms(var list: ArrayList<SmsPaketlar>, var itemCLick: setOnCLick) 
     override fun getItemCount(): Int = list.size
     interface setOnCLick {
         fun itemOnClick(data: SmsPaketlar, position: Int)
+        fun itemActiveClick(data: SmsPaketlar, position: Int)
     }
 }

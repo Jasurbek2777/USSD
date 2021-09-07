@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tabIndicatorHeight="0dp"
         app:tabMode="scrollable"
-        app:tabRippleColor="@null"  />
+        app:tabRippleColor="@null" />
 
     <TextView
         android:id="@+id/check_tv"
@@ -24,8 +24,8 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:background="@drawable/chek_tv_back"
         android:padding="8dp"
+        android:text="@string/check_ostatik"
         android:textColor="#B08E15"
-        android:text="Trafikni tekshirish"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tab" />

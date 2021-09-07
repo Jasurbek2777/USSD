@@ -219,6 +219,13 @@ class PackageInnerFragment : Fragment() {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
 
                                         }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
+
+                                        }
                                     })
                                     binding.rv.adapter = smsAdapter
 
@@ -240,6 +247,13 @@ class PackageInnerFragment : Fragment() {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
 
                                         }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
+
+                                        }
                                     })
                                     binding.rv.adapter = smsAdapter
 
@@ -258,6 +272,13 @@ class PackageInnerFragment : Fragment() {
                                     }
                                     smsAdapter = RvAdapterSms(list, object : RvAdapterSms.setOnCLick {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
+
+                                        }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
 
                                         }
                                     })
@@ -440,6 +461,13 @@ class PackageInnerFragment : Fragment() {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
 
                                         }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
+
+                                        }
                                     })
                                     binding.rv.adapter = smsAdapter
 
@@ -461,6 +489,13 @@ class PackageInnerFragment : Fragment() {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
 
                                         }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
+
+                                        }
                                     })
                                     binding.rv.adapter = smsAdapter
 
@@ -479,6 +514,13 @@ class PackageInnerFragment : Fragment() {
                                     }
                                     smsAdapter = RvAdapterSms(list, object : RvAdapterSms.setOnCLick {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
+
+                                        }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
 
                                         }
                                     })
@@ -661,6 +703,13 @@ class PackageInnerFragment : Fragment() {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
 
                                         }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
+
+                                        }
                                     })
                                     binding.rv.adapter = smsAdapter
 
@@ -682,6 +731,13 @@ class PackageInnerFragment : Fragment() {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
 
                                         }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
+
+                                        }
                                     })
                                     binding.rv.adapter = smsAdapter
 
@@ -700,6 +756,13 @@ class PackageInnerFragment : Fragment() {
                                     }
                                     smsAdapter = RvAdapterSms(list, object : RvAdapterSms.setOnCLick {
                                         override fun itemOnClick(data: SmsPaketlar, position: Int) {
+
+                                        }
+
+                                        override fun itemActiveClick(
+                                            data: SmsPaketlar,
+                                            position: Int
+                                        ) {
 
                                         }
                                     })
