@@ -95,8 +95,6 @@ class TarifFragment : Fragment() {
                 binding.rv.adapter = adapter
             }
         }
-
-
         return binding.root
 
     }

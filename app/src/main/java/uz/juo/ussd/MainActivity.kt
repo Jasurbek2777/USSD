@@ -38,14 +38,10 @@ import uz.juo.ussd.ui.language.LanguageActivity
 
 
 class MainActivity : AppCompatActivity() {
-    //    var db = FirebaseFirestore.getInstance()
-    lateinit var internetPaketlar: ArrayList<Internetpaketlar>
-    lateinit var smsPaketlar: ArrayList<SmsPaketlar>
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     lateinit var navController: NavController
 
-    //    private var appLanguage = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -119,10 +115,9 @@ class MainActivity : AppCompatActivity() {
 
             }
             appBarMain.inner.homeBtn.setOnClickListener {
-                if (navController.currentDestination!!.id != R.id.nav_home) {
+                while (navController.currentDestination!!.id != R.id.nav_home){
                     navController.popBackStack()
                 }
-
             }
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -130,7 +125,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_home), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
         binding.navView.setNavigationItemSelectedListener {
             binding.navView.menu.getItem(0).isChecked = true
             when (it.itemId) {
@@ -204,52 +198,6 @@ class MainActivity : AppCompatActivity() {
         }
         navView.itemIconTintList = null
     }
-//
-//    private fun setDataToFirebase() {
-//        loadTariflar()
-//        loadSmsPaketlar()
-////        for (i in internetPaketlar) {
-////            db.collection("InternetOyUZ")
-////                .add(i)
-////                .addOnSuccessListener { documentReference ->
-////                    Log.d(
-////                        TAG,
-////                        "DocumentSnapshot added with ID: "
-////                    )
-////                }
-////                .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
-////        }
-////        db.collection("SmsPaketOyUZ")
-////            .add(smsPaketlar)
-////            .addOnSuccessListener { documentReference ->
-////                Log.d(
-////                    TAG,
-////                    "DocumentSnapshot added with ID: " + documentReference.id
-////                )
-////            }
-////            .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
-//    }
-//
-//    private fun loadTariflar() {
-//        internetPaketlar = ArrayList()
-//        internetPaketlar.add(Internetpaketlar("9 000 so‘m", "*111*1*9*1#", "1 GB"))
-//        internetPaketlar.add(Internetpaketlar("14 000 so‘m", "*111*1*9*2#", "1.5 GB"))
-//        internetPaketlar.add(Internetpaketlar("25 000 so‘m", "*111*1*9*4#", "5 GB"))
-//        internetPaketlar.add(Internetpaketlar("50 000 so‘m", "*111*1*9*6#", "12 GB"))
-//        internetPaketlar.add(Internetpaketlar("65 000 so‘m", "*111*1*9*7#", "20 GB"))
-//        internetPaketlar.add(Internetpaketlar("75 000 so‘m", "*111*1*9*8#", "30 GB"))
-//    }
-//
-//    private fun loadSmsPaketlar() {
-//        smsPaketlar = ArrayList()
-//        smsPaketlar.add(SmsPaketlar("MS 10 SMS", "420 so‘m", "*111*1*1*1#", "10"))
-//        smsPaketlar.add(SmsPaketlar("MS 50 SMS", "1 680 so‘m", "*111*1*1*2#", "50"))
-//        smsPaketlar.add(SmsPaketlar("MS 200 SMS", "5 200 so‘m", "*111*1*1*3#", "200"))
-//        smsPaketlar.add(SmsPaketlar("MS 500 SMS", "9 500 so‘m", "*111*1*1*4#", "500"))
-//
-//    }
-
-
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

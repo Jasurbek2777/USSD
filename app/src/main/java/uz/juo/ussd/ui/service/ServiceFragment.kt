@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import uz.juo.ussd.MainActivity
 import uz.juo.ussd.R
 import uz.juo.ussd.databinding.FragmentServiceBinding
+import uz.juo.ussd.utils.SharedPreference
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -29,8 +31,14 @@ class ServiceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentServiceBinding.inflate(inflater, container, false)
+        (activity as MainActivity).supportActionBar?.title = param1
+        when (SharedPreference.getInstance(requireContext()).lang) {
+            "ru" -> {
+                when(param1){
 
-
+                }
+            }
+        }
         return binding.root
     }
 

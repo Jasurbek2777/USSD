@@ -8,8 +8,9 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager.widget.PagerAdapter
 import uz.juo.ussd.R
 import uz.juo.ussd.databinding.HomeViewpagerItemBinding
+import uz.juo.ussd.models.Tariflar
 
-class ViewPagerAdapter(var images: ArrayList<Int>) : PagerAdapter() {
+class ViewPagerAdapter(var images: ArrayList<Tariflar>) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(container.context)
