@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">MYUSSD</string>
+    <string name="app_name" translatable="false">USSD</string>
     <string name="uzbek">O\’zbek</string>
     <string name="russian">Русский</string>
     <string name="latin">Ўзбек</string>

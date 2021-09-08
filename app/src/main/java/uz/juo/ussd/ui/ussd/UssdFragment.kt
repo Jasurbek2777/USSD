@@ -92,7 +92,7 @@ class UssdFragment : Fragment() {
             }
             "uz" -> {
                 list = ArrayList()
-                db.collection("UssCril").addSnapshotListener { value, error ->
+                db.collection("UssdCril").addSnapshotListener { value, error ->
                     value?.documents?.forEach {
                         var data = it.toObject(Ussd::class.java)
                         if (data != null) {

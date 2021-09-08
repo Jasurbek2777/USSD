@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_13sdp">
+        android:padding="@dimen/_8sdp">
 
         <LinearLayout
             android:id="@+id/linear"
@@ -35,6 +35,7 @@
         <TextView
             android:id="@+id/rv_item_tv"
             android:layout_width="0dp"
+            android:maxLines="1"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_12sdp"
             android:text="Balans"
@@ -63,7 +64,7 @@ imkoniyat UZTELECOM savdo idorasiga yozma ariza bilan belgilanadi."
             android:layout_width="0dp"
             android:layout_height="0.5dp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/rv_line"
+            android:background="#8C8A8A"
             app:layout_constraintLeft_toLeftOf="@id/rv_item_desc_tv"
             app:layout_constraintRight_toRightOf="@id/rv_item_desc_tv"
             app:layout_constraintTop_toBottomOf="@id/rv_item_desc_tv" />

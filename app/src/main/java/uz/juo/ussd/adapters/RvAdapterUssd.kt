@@ -10,6 +10,8 @@ class RvAdapterUssd(var list: ArrayList<Ussd>, var itemCLick: setOnCLick) :
     RecyclerView.Adapter<RvAdapterUssd.Vh>() {
     inner class Vh(var item: RvItem2Binding) : RecyclerView.ViewHolder(item.root) {
         fun onBind(data: Ussd, position: Int) {
+            item.rvItemDescTv.text = data.code
+            item.rvItemTv.text = data.name
             item.root.setOnClickListener {
                 itemCLick.itemOnClick(data, position)
             }

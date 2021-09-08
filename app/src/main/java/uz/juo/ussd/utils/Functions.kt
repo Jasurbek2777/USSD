@@ -2,6 +2,7 @@ package uz.juo.ussd.utils
 
 import android.Manifest
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
@@ -14,6 +15,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import uz.juo.ussd.R
 
 class Functions {
 
@@ -21,6 +23,10 @@ class Functions {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(name)
             .setMessage(info)
+            .setPositiveButton(context.getString(R.string.back)
+            ) { dialog, which ->
+                dialog.cancel()
+            }
         builder.show()
     }
 

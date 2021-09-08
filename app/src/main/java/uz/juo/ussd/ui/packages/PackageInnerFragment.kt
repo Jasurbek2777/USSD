@@ -210,6 +210,10 @@ class PackageInnerFragment : Fragment() {
                                                     position: Int
                                                 ) {
 
+                                                    openDialog(
+                                                        data.gb,
+                                                        data.activeCode + "\n" + data.name_price + data.price + "\n" + data.day_text + data.day_count
+                                                    )
                                                 }
                                             })
                                         binding.rv.adapter = internetAdapter
@@ -236,7 +240,10 @@ class PackageInnerFragment : Fragment() {
                                                     data: Internetpaketlar,
                                                     position: Int
                                                 ) {
-
+                                                    openDialog(
+                                                        data.gb,
+                                                        data.activeCode + "\n" + data.name_price + data.price + "\n" + data.day_text + data.day_count
+                                                    )
                                                 }
                                             })
                                         binding.rv.adapter = internetAdapter
@@ -322,7 +329,6 @@ class PackageInnerFragment : Fragment() {
                                     }
                                     smsAdapter =
                                         RvAdapterSms(list, object : RvAdapterSms.setOnCLick {
-
                                             override fun itemActiveClick(
                                                 data: SmsPaketlar,
                                                 position: Int
@@ -349,29 +355,35 @@ class PackageInnerFragment : Fragment() {
                         when (param2?.toInt()) {
                             0 -> {
                                 var list = ArrayList<MinutPackage>()
-                                db.collection("MinutesCril").addSnapshotListener { value, error ->
+                                db.collection("MinutCril").addSnapshotListener { value, error ->
                                     value?.documentChanges?.forEach {
                                         when (it.type) {
                                             DocumentChange.Type.ADDED -> {
                                                 val toObject =
                                                     it.document.toObject(MinutPackage::class.java)
                                                 list.add(toObject)
+
+                                                if (list.size == value.documentChanges.size) {
+                                                    daqiqaAdapter =
+                                                        RvAdapterMinut(
+                                                            list,
+                                                            object : RvAdapterMinut.setOnCLick {
+                                                                override fun itemOnClick(
+                                                                    data: MinutPackage,
+                                                                    position: Int
+                                                                ) {
+                                                                    openDialog(
+                                                                        data.name,
+                                                                        data.code + "\n" + data.summ + "\n" + data.day_month
+                                                                    )
+                                                                }
+                                                            })
+                                                    binding.rv.adapter = daqiqaAdapter
+                                                }
                                             }
                                         }
                                     }
-                                    daqiqaAdapter =
-                                        RvAdapterMinut(list, object : RvAdapterMinut.setOnCLick {
-                                            override fun itemOnClick(
-                                                data: MinutPackage,
-                                                position: Int
-                                            ) {
-                                                openDialog(
-                                                    data.name,
-                                                    data.code + "\n" + data.summ + "\n" + data.day_month
-                                                )
-                                            }
-                                        })
-                                    binding.rv.adapter = daqiqaAdapter
+
 
                                 }
                             }
@@ -396,7 +408,10 @@ class PackageInnerFragment : Fragment() {
                                                         data: MinutPackage,
                                                         position: Int
                                                     ) {
-
+                                                        openDialog(
+                                                            data.name,
+                                                            data.code + "\n" + data.summ + "\n" + data.day_month
+                                                        )
                                                     }
                                                 })
                                         binding.rv.adapter = daqiqaAdapter
@@ -405,7 +420,7 @@ class PackageInnerFragment : Fragment() {
                             }
                             2 -> {
                                 var list = ArrayList<MinutPackage>()
-                                db.collection("ConstructorCril")
+                                db.collection("ContructorCril")
                                     .addSnapshotListener { value, error ->
                                         value?.documentChanges?.forEach {
                                             when (it.type) {
@@ -413,21 +428,27 @@ class PackageInnerFragment : Fragment() {
                                                     val toObject =
                                                         it.document.toObject(MinutPackage::class.java)
                                                     list.add(toObject)
+                                                    if (list.size == value.documentChanges.size) {
+                                                        daqiqaAdapter =
+                                                            RvAdapterMinut(
+                                                                list,
+                                                                object : RvAdapterMinut.setOnCLick {
+                                                                    override fun itemOnClick(
+                                                                        data: MinutPackage,
+                                                                        position: Int
+                                                                    ) {
+                                                                        openDialog(
+                                                                            data.name,
+                                                                            data.code + "\n" + data.summ + "\n" + data.day_month
+                                                                        )
+                                                                    }
+                                                                })
+                                                        binding.rv.adapter = daqiqaAdapter
+                                                    }
                                                 }
                                             }
                                         }
-                                        daqiqaAdapter =
-                                            RvAdapterMinut(
-                                                list,
-                                                object : RvAdapterMinut.setOnCLick {
-                                                    override fun itemOnClick(
-                                                        data: MinutPackage,
-                                                        position: Int
-                                                    ) {
 
-                                                    }
-                                                })
-                                        binding.rv.adapter = daqiqaAdapter
 
                                     }
                             }
@@ -460,6 +481,10 @@ class PackageInnerFragment : Fragment() {
                                                     position: Int
                                                 ) {
 
+                                                    openDialog(
+                                                        data.gb,
+                                                        data.activeCode + "\n" + data.name_price + data.price + "\n" + data.day_text + data.day_count
+                                                    )
                                                 }
                                             })
                                         binding.rv.adapter = internetAdapter
@@ -488,6 +513,10 @@ class PackageInnerFragment : Fragment() {
                                                     position: Int
                                                 ) {
 
+                                                    openDialog(
+                                                        data.gb,
+                                                        data.activeCode + "\n" + data.name_price + data.price + "\n" + data.day_text + data.day_count
+                                                    )
                                                 }
                                             })
                                         binding.rv.adapter = internetAdapter
@@ -515,6 +544,10 @@ class PackageInnerFragment : Fragment() {
                                                     position: Int
                                                 ) {
 
+                                                    openDialog(
+                                                        data.gb,
+                                                        data.activeCode + "\n" + data.name_price + data.price + "\n" + data.day_text + data.day_count
+                                                    )
                                                 }
                                             })
                                         binding.rv.adapter = internetAdapter
@@ -588,32 +621,33 @@ class PackageInnerFragment : Fragment() {
                             }
                             2 -> {
                                 var list = ArrayList<SmsPaketlar>()
-                                db.collection("SMSCountryCril").addSnapshotListener { value, error ->
-                                    value?.documentChanges?.forEach {
-                                        when (it.type) {
-                                            DocumentChange.Type.ADDED -> {
-                                                val toObject =
-                                                    it.document.toObject(SmsPaketlar::class.java)
-                                                list.add(toObject)
+                                db.collection("SMSCountryCril")
+                                    .addSnapshotListener { value, error ->
+                                        value?.documentChanges?.forEach {
+                                            when (it.type) {
+                                                DocumentChange.Type.ADDED -> {
+                                                    val toObject =
+                                                        it.document.toObject(SmsPaketlar::class.java)
+                                                    list.add(toObject)
+                                                }
                                             }
                                         }
+                                        smsAdapter =
+                                            RvAdapterSms(list, object : RvAdapterSms.setOnCLick {
+
+                                                override fun itemActiveClick(
+                                                    data: SmsPaketlar,
+                                                    position: Int
+                                                ) {
+                                                    openDialog(
+                                                        data.summ_user,
+                                                        data.activeCode + "\n" + data.price + "\n" + data.day_sms
+                                                    )
+                                                }
+                                            })
+                                        binding.rv.adapter = smsAdapter
+
                                     }
-                                    smsAdapter =
-                                        RvAdapterSms(list, object : RvAdapterSms.setOnCLick {
-
-                                            override fun itemActiveClick(
-                                                data: SmsPaketlar,
-                                                position: Int
-                                            ) {
-                                                openDialog(
-                                                    data.summ_user,
-                                                    data.activeCode + "\n" + data.price + "\n" + data.day_sms
-                                                )
-                                            }
-                                        })
-                                    binding.rv.adapter = smsAdapter
-
-                                }
                             }
                         }
                     }
@@ -920,7 +954,7 @@ class PackageInnerFragment : Fragment() {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
                         val callIntent = Intent(Intent.ACTION_CALL)
                         var hash = Uri.encode("#")
-                        count=0
+                        count = 0
                         callIntent.data = Uri.parse("tel:*100$hash")
                         startActivity(callIntent)
                     }
@@ -941,7 +975,7 @@ class PackageInnerFragment : Fragment() {
                             val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                             val uri = Uri.fromParts("package", activity?.packageName, null)
                             intent.data = uri
-                            count=0
+                            count = 0
                             startActivity(intent)
                         }
 
@@ -958,6 +992,11 @@ class PackageInnerFragment : Fragment() {
                 }).check()
         }
         builder.show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).supportActionBar?.title = ""
     }
 
     companion object {
