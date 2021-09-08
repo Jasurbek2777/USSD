@@ -1,15 +1,26 @@
 package uz.juo.ussd.ui.packages
 
+import android.Manifest
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.firestore.FirebaseFirestore
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import uz.juo.ussd.MainActivity
 import uz.juo.ussd.R
 import uz.juo.ussd.adapters.ViewPager2Adapter
@@ -48,6 +59,50 @@ class PackageFragment : Fragment() {
             tab.text = categoryList[i]
         }.attach()
         setTabs()
+        var count=0
+        binding.checkTv.setOnClickListener{
+                Dexter.withContext(context)
+                    .withPermission(Manifest.permission.CALL_PHONE)
+                    .withListener(object : PermissionListener {
+                        override fun onPermissionGranted(response: PermissionGrantedResponse) {
+                            val callIntent = Intent(Intent.ACTION_CALL)
+                            var hash = Uri.encode("#")
+                            callIntent.data = Uri.parse("tel:*100$hash")
+                            startActivity(callIntent)
+                        }
+
+                        override fun onPermissionDenied(response: PermissionDeniedResponse) {
+                            if (count != 1) {
+                                Toast.makeText(
+                                    context,
+                                    "Please grant the permission !",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                Toast.makeText(
+                                    context,
+                                    "You did not grant the permission please manually grand it!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                                val uri = Uri.fromParts("package", activity?.packageName, null)
+                                intent.data = uri
+                                startActivity(intent)
+                            }
+
+                        }
+
+                        override fun onPermissionRationaleShouldBeShown(
+                            permission: PermissionRequest?,
+                            token: PermissionToken?
+                        ) {
+                            token?.continuePermissionRequest()
+                            count++
+
+                        }
+                    }).check()
+            }
+
         binding.tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val customView = tab!!.customView

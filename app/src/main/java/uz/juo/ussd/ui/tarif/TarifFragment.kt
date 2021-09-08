@@ -1,15 +1,27 @@
 package uz.juo.ussd.ui.tarif
 
+import android.Manifest
 import android.content.ContentValues
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import uz.juo.ussd.MainActivity
 import uz.juo.ussd.R
 import uz.juo.ussd.adapters.RvAdapterTarif
@@ -49,10 +61,17 @@ class TarifFragment : Fragment() {
                     value?.documentChanges?.forEach {
                         var data = it.document.toObject(Tariflar::class.java)
                         list.add(data)
-                        if(value.documentChanges.size==list.size){
+                        if (value.documentChanges.size == list.size) {
                             adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
                                 override fun itemOnClick(data: Tariflar, position: Int) {
-                                    Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
+
+                                }
+
+                                override fun moreItemClick(data: Tariflar, position: Int) {
+                                    var b=Bundle()
+                                    b.putSerializable("param1",data)
+                                    findNavController().navigate(R.id.infoTarifFragment,b)
+
                                 }
                             })
                             binding.rv.adapter = adapter
@@ -67,10 +86,16 @@ class TarifFragment : Fragment() {
                     value?.documentChanges?.forEach {
                         var data = it.document.toObject(Tariflar::class.java)
                         list.add(data)
-                        if (value?.documentChanges?.size==list.size){
+                        if (value?.documentChanges?.size == list.size) {
                             adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
                                 override fun itemOnClick(data: Tariflar, position: Int) {
-                                    Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
+                                }
+
+                                override fun moreItemClick(data: Tariflar, position: Int) {
+                                    var b=Bundle()
+                                    b.putSerializable("param1",data)
+                                    findNavController().navigate(R.id.infoTarifFragment,b)
+
                                 }
                             })
                             binding.rv.adapter = adapter
@@ -85,15 +110,69 @@ class TarifFragment : Fragment() {
                     value?.documentChanges?.forEach {
                         var data = it.document.toObject(Tariflar::class.java)
                         list.add(data)
+                        if (value.documentChanges.size == list.size) {
+                            adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
+                                override fun itemOnClick(data: Tariflar, position: Int) {
+
+                                }
+
+                                override fun moreItemClick(data: Tariflar, position: Int) {
+                                    var b=Bundle()
+                                    b.putSerializable("param1",data)
+                                    findNavController().navigate(R.id.infoTarifFragment,b) }
+                            })
+                            binding.rv.adapter = adapter
+                        }
                     }
                 }
-                adapter = RvAdapterTarif(list, object : RvAdapterTarif.setOnCLick {
-                    override fun itemOnClick(data: Tariflar, position: Int) {
-                        Toast.makeText(requireContext(), data.code, Toast.LENGTH_SHORT).show()
-                    }
-                })
-                binding.rv.adapter = adapter
             }
+        }
+        var count = 0
+        binding.checkTarif.setOnClickListener {
+            Dexter.withContext(requireContext())
+                .withPermission(Manifest.permission.CALL_PHONE)
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(response: PermissionGrantedResponse) {
+                        val callIntent = Intent(Intent.ACTION_CALL)
+                        var hash = Uri.encode("#")
+                        callIntent.data = Uri.parse("tel:*100$hash")
+                        startActivity(callIntent)
+                    }
+
+                    override fun onPermissionDenied(response: PermissionDeniedResponse) {
+                        if (count != 1) {
+                            Toast.makeText(
+                                requireContext(),
+                                "Please grant the permission !",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                "You did not grant the permission please manually grand it!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                            val uri = Uri.fromParts(
+                                "package",
+                                (activity as MainActivity).packageName,
+                                null
+                            )
+                            intent.data = uri
+                            startActivity(intent)
+                        }
+
+                    }
+
+                    override fun onPermissionRationaleShouldBeShown(
+                        permission: PermissionRequest?,
+                        token: PermissionToken?
+                    ) {
+                        token?.continuePermissionRequest()
+                        count++
+
+                    }
+                }).check()
         }
         return binding.root
 

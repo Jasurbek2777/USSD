@@ -11,11 +11,7 @@ class RvAdapterMinut(var list: ArrayList<MinutPackage>, var itemCLick: setOnCLic
     inner class Vh(var item: RvTestItemBinding) : RecyclerView.ViewHolder(item.root) {
         fun onBind(data: MinutPackage, position: Int) {
             item.rvItemTv.text = data.name
-            item.rvItemDescTv.text = data.name + "\n"
-//            + data.count_sms + "\n" + data.day_sms
-            item.root.setOnClickListener {
-                itemCLick.itemOnClick(list[position], position)
-            }
+            item.rvItemDescTv.text = data.name + "\n"+data.day_month+ "\n"+data.onCode
             item.active.setOnClickListener {
                 itemCLick.itemOnClick(list[position], position)
             }

@@ -10,8 +10,11 @@ class RvAdapterInternet(var list: ArrayList<Internetpaketlar>, var itemCLick: se
     RecyclerView.Adapter<RvAdapterInternet.Vh>() {
     inner class Vh(var item: RvTestItemBinding) : RecyclerView.ViewHolder(item.root) {
         fun onBind(data: Internetpaketlar, position: Int) {
-            item.rvItemTv.text = data.name_price
-            item.root.setOnClickListener {
+            item.rvItemTv.text = data.mb_count
+            item.rvItemDescTv.text =
+                data.activeCode + "\n" + data.day_text+" : " + data.day_count + "\n" +data.mb_text+" : "+ data.gb
+
+            item.active.setOnClickListener {
                 itemCLick.itemOnClick(list[position], position)
             }
         }

@@ -1,6 +1,8 @@
 package uz.juo.ussd.models
 
- class Tariflar {
+import java.io.Serializable
+
+class Tariflar:Serializable {
      var code: String= ""
      var info: String= ""
      var info_min: String= ""

@@ -51,4 +51,9 @@
         android:name="uz.juo.ussd.ui.news.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/infoTarifFragment"
+        android:name="uz.juo.ussd.ui.infoTarif.InfoTarifFragment"
+        android:label="fragment_info_tarif"
+        tools:layout="@layout/fragment_info_tarif" />
 </navigation>

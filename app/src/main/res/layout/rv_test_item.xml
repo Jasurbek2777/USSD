@@ -35,24 +35,12 @@
 
                     <ImageView
                         android:id="@+id/rv_item_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/rv_item_name_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="@dimen/_5sdp"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="*141#"
-                        android:textColor="@color/white"
-                        android:visibility="visible" />
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/uzmobile_icon" />
 
                 </LinearLayout>
 

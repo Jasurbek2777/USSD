@@ -12,6 +12,7 @@
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <!-- drawer screen -->
     <string name="drawer_txt">Milliy Operator</string>
+    <string name="tarif_tolov">Abonent to\’lovi</string>
 
     <string name="telegram_channel">Telegram kanal</string>
     <string name="connect_with_us">Biz blan aloqa</string>

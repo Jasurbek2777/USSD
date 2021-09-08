@@ -11,8 +11,12 @@ class RvAdapterTarif(var list: ArrayList<Tariflar>, var itemCLick: setOnCLick) :
     inner class Vh(var item: RvTestItemBinding) : RecyclerView.ViewHolder(item.root) {
         fun onBind(data: Tariflar, position: Int) {
             item.rvItemTv.text = data.name
+            item.rvItemDescTv.text = data.info
             item.root.setOnClickListener {
                 itemCLick.itemOnClick(list[position], position)
+            }
+            item.active.setOnClickListener {
+                itemCLick.moreItemClick(list[position], position)
             }
         }
     }
@@ -30,5 +34,6 @@ class RvAdapterTarif(var list: ArrayList<Tariflar>, var itemCLick: setOnCLick) :
     override fun getItemCount(): Int = list.size
     interface setOnCLick {
         fun itemOnClick(data: Tariflar, position: Int)
+        fun moreItemClick(data: Tariflar, position: Int)
     }
 }
