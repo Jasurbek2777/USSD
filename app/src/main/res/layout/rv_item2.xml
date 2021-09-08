@@ -12,8 +12,8 @@
 
         <LinearLayout
             android:id="@+id/linear"
-            android:layout_width="@dimen/_45sdp"
-            android:layout_height="@dimen/_45sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             android:background="@drawable/rv_item_image_back"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -26,29 +26,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                android:visibility="gone" />
+                android:src="@drawable/uzmobile_icon" />
 
-            <TextView
-                android:id="@+id/rv_item_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/_5sdp"
-                android:gravity="center"
-                android:maxLines="2"
-                android:text="*102#"
-                android:textColor="@color/white"
-                android:visibility="visible" />
+
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/rv_item_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_12sdp"
             android:text="Balans"
+            app:layout_constraintRight_toRightOf="@id/rv_item_desc_tv"
             android:textColor="@color/grey"
             app:layout_constraintLeft_toRightOf="@id/linear"
             app:layout_constraintTop_toTopOf="@id/linear" />

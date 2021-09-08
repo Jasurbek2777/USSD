@@ -46,6 +46,35 @@ class HomeFragment : Fragment() {
         loadImages()
         (activity as MainActivity).supportActionBar?.show()
         (activity as MainActivity).supportActionBar?.title = ""
+        binding.apply {
+            ussd.setOnClickListener {
+                var bundle = bundleOf(Pair("param1", "USSD"))
+                findNavController().navigate(R.id.ussdFragment, bundle)
+            }
+            tarif.setOnClickListener {
+                findNavController().navigate(R.id.tarifFragment)
+            }
+            xizmat.setOnClickListener {
+
+                var bundle = bundleOf(Pair("param1", "Xizmat"))
+                findNavController().navigate(R.id.serviceFragment, bundle)
+            }
+            minute.setOnClickListener {
+
+                var bundle = bundleOf(Pair("param1", "Minut"))
+                findNavController().navigate(R.id.packageFragment, bundle)
+            }
+            internet.setOnClickListener {
+
+                var bundle = bundleOf(Pair("param1", "Internet"))
+                findNavController().navigate(R.id.packageFragment, bundle)
+            }
+            sms.setOnClickListener {
+                var bundle = bundleOf(Pair("param1", "SMS"))
+                findNavController().navigate(R.id.packageFragment, bundle)
+            }
+        }
+
         return root
     }
 
@@ -100,34 +129,6 @@ class HomeFragment : Fragment() {
         var viewPagerAdapter = ViewPagerAdapter(list)
         binding.viewPager.adapter = viewPagerAdapter
         val handler = Handler(Looper.getMainLooper())
-        binding.apply {
-            ussd.setOnClickListener {
-                var bundle = bundleOf(Pair("param1", "USSD"))
-                findNavController().navigate(R.id.serviceFragment, bundle)
-            }
-            tarif.setOnClickListener {
-                findNavController().navigate(R.id.tarifFragment)
-            }
-            xizmat.setOnClickListener {
-
-                var bundle = bundleOf(Pair("param1", "Xizmat"))
-                findNavController().navigate(R.id.serviceFragment, bundle)
-            }
-            minute.setOnClickListener {
-
-                var bundle = bundleOf(Pair("param1", "Minut"))
-                findNavController().navigate(R.id.packageFragment, bundle)
-            }
-            internet.setOnClickListener {
-
-                var bundle = bundleOf(Pair("param1", "Internet"))
-                findNavController().navigate(R.id.packageFragment, bundle)
-            }
-            sms.setOnClickListener {
-                var bundle = bundleOf(Pair("param1", "SMS"))
-                findNavController().navigate(R.id.packageFragment, bundle)
-            }
-        }
         val update = Runnable {
             if (viewPager.currentItem == 4) {
                 viewPager.currentItem = 0

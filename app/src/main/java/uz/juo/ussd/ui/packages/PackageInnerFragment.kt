@@ -907,7 +907,6 @@ class PackageInnerFragment : Fragment() {
     }
 
     fun openDialog(name: String, info: String) {
-
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle(name)
             .setMessage(info)

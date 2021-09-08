@@ -1,4 +1,4 @@
-package uz.juo.ussd.ui.service
+package uz.juo.ussd.ui.ussd
 
 import android.Manifest
 import android.content.Intent
@@ -20,23 +20,22 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import uz.juo.ussd.MainActivity
 import uz.juo.ussd.R
-import uz.juo.ussd.adapters.RvAdapterService
-import uz.juo.ussd.databinding.FragmentServiceBinding
-import uz.juo.ussd.models.Service
+import uz.juo.ussd.adapters.RvAdapterUssd
+import uz.juo.ussd.databinding.FragmentUssdBinding
 import uz.juo.ussd.models.Ussd
 import uz.juo.ussd.utils.SharedPreference
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class ServiceFragment : Fragment() {
+class UssdFragment : Fragment() {
     var db = FirebaseFirestore.getInstance()
-    lateinit var list: ArrayList<Service>
-    lateinit var binding: FragmentServiceBinding
-    lateinit var adapter: RvAdapterService
-    var count = 0
     private var param1: String? = null
+    var count = 0
+    lateinit var list: ArrayList<Ussd>
     private var param2: String? = null
+    lateinit var adapter: RvAdapterUssd
+    lateinit var binding: FragmentUssdBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,63 +48,63 @@ class ServiceFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentServiceBinding.inflate(inflater, container, false)
-        (activity as MainActivity).supportActionBar?.title = getString(R.string.xizmat_label)
+    ): View? {
+        binding = FragmentUssdBinding.inflate(inflater, container, false)
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.ussd_label)
         when (SharedPreference.getInstance(requireContext()).lang) {
             "ru" -> {
-                list= ArrayList()
-                db.collection("ServiceRu").addSnapshotListener { value, error ->
+                list = ArrayList()
+                db.collection("UssdRu").addSnapshotListener { value, error ->
                     value?.documents?.forEach {
-                        var data = it.toObject(Service::class.java)
+                        var data = it.toObject(Ussd::class.java)
                         if (data != null) {
                             list.add(data)
                         }
-                        if (list.size == value?.documents?.size) {
-                            adapter = RvAdapterService(list, object : RvAdapterService.setOnCLick {
-                                override fun itemOnClick(data: Service, position: Int) {
-                                    openDialog(data.name, data.info1)
+                        if (list.size == value.documents.size) {
+                            adapter = RvAdapterUssd(list, object : RvAdapterUssd.setOnCLick {
+                                override fun itemOnClick(data: Ussd, position: Int) {
+                                    openDialog(data.name, data.code)
                                 }
                             })
-                            binding.rv.adapter=adapter
+                            binding.rv.adapter = adapter
                         }
                     }
                 }
             }
             "en" -> {
-                list= ArrayList()
-                db.collection("Service").addSnapshotListener { value, error ->
+                list = ArrayList()
+                db.collection("Ussd").addSnapshotListener { value, error ->
                     value?.documents?.forEach {
-                        var data = it.toObject(Service::class.java)
+                        var data = it.toObject(Ussd::class.java)
                         if (data != null) {
                             list.add(data)
                         }
-                        if (list.size == value?.documents?.size) {
-                            adapter = RvAdapterService(list, object : RvAdapterService.setOnCLick {
-                                override fun itemOnClick(data: Service, position: Int) {
-                                    openDialog(data.name, data.info1)
+                        if (list.size == value.documents.size) {
+                            adapter = RvAdapterUssd(list, object : RvAdapterUssd.setOnCLick {
+                                override fun itemOnClick(data: Ussd, position: Int) {
+                                    openDialog(data.name, data.code)
                                 }
                             })
-                            binding.rv.adapter=adapter
+                            binding.rv.adapter = adapter
                         }
                     }
                 }
             }
             "uz" -> {
-                list=ArrayList()
-                db.collection("ServiceCril").addSnapshotListener { value, error ->
+                list = ArrayList()
+                db.collection("UssCril").addSnapshotListener { value, error ->
                     value?.documents?.forEach {
-                        var data = it.toObject(Service::class.java)
+                        var data = it.toObject(Ussd::class.java)
                         if (data != null) {
                             list.add(data)
                         }
-                        if (list.size == value?.documents?.size) {
-                            adapter = RvAdapterService(list, object : RvAdapterService.setOnCLick {
-                                override fun itemOnClick(data: Service, position: Int) {
-                                    openDialog(data.name, data.info1)
+                        if (list.size == value.documents.size) {
+                            adapter = RvAdapterUssd(list, object : RvAdapterUssd.setOnCLick {
+                                override fun itemOnClick(data: Ussd, position: Int) {
+                                    openDialog(data.name, data.code)
                                 }
                             })
-                            binding.rv.adapter=adapter
+                            binding.rv.adapter = adapter
                         }
                     }
                 }
@@ -169,10 +168,9 @@ class ServiceFragment : Fragment() {
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ServiceFragment().apply {
+            UssdFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
